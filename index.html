@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Guess the 4 Digit Number</h2>
+        <div id="game-info" class="alert alert-info text-center">
+            Masukkan 4 digit angka unik (1-9)
+        </div>
+        <form id="guess-form">
+            <div class="form-group">
+                <input type="text" id="user-input" class="form-control" placeholder="Masukkan 4 digit angka" maxlength="4">
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Submit</button>
+            <button type="button" id="exit-btn" class="btn btn-danger btn-block">Exit</button>
+        </form>
+        <div id="result" class="mt-4"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
