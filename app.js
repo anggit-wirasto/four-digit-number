@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const uniqueNumber = generateUniqueDigitNumber();
+    let uniqueNumber = generateUniqueDigitNumber();
     let attempt = 1;
-    let correct = false;
 
     const form = document.getElementById('guess-form');
     const userInput = document.getElementById('user-input');
     const gameInfo = document.getElementById('game-info');
-    const resultDiv = document.getElementById('result');
+    const resultTableBody = document.querySelector('#result tbody');
     const exitBtn = document.getElementById('exit-btn');
 
     form.addEventListener('submit', function(event) {
@@ -23,18 +22,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const [cp, cdwp, wd] = compareNumbers(uniqueNumber, input);
 
+            const newRow = `
+                <tr>
+                    <td>${attempt}</td>
+                    <td>${input}</td>
+                    <td>${cp}</td>
+                    <td>${cdwp}</td>
+                </tr>
+            `;
+            resultTableBody.insertAdjacentHTML('afterbegin', newRow);
+
             if (cp === 4) {
-                correct = true;
-                resultDiv.innerHTML = `<div class="alert alert-success">Anda benar! Setelah percobaan ke-${attempt}</div>`;
+                showSuccessMessage(input, attempt);
             } else {
-                resultDiv.innerHTML += `
-                    <div class="alert alert-warning">
-                        Percobaan ke-${attempt}: ${input}<br>
-                        Jumlah angka benar di posisi benar: ${cp}, Jumlah angka benar di posisi salah: ${cdwp}
-                    </div>
-                `;
                 attempt++;
             }
+
+            // Kosongkan input setelah submit
+            userInput.value = '';
         }
     });
 
@@ -85,5 +90,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         return [correctPosition, correctDigitWrongPosition, wrongDigit];
+    }
+
+    function showSuccessMessage(input, attempt) {
+        form.innerHTML = `
+            <div class="result-div">Anda benar! Percobaan ke-${attempt}: ${input}</div>
+            <button type="button" id="restart-btn" class="btn btn-success btn-block">Mulai Game Baru</button>
+        `;
+
+        document.getElementById('restart-btn').addEventListener('click', function() {
+            location.reload();
+        });
     }
 });

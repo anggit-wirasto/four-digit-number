@@ -18,6 +18,17 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+        .table-result {
+            width: 100%;
+        }
+        .result-div {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -33,7 +44,20 @@
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
             <button type="button" id="exit-btn" class="btn btn-danger btn-block">Exit</button>
         </form>
-        <div id="result" class="mt-4"></div>
+        <div class="mt-4">
+            <table id="result" class="table table-bordered table-result">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Tebakan</th>
+                        <th>Angka Benar Posisi Tepat</th>
+                        <th>Angka Benar Posisi Salah</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
