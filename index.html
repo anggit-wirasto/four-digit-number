@@ -29,6 +29,15 @@
             margin-bottom: 20px;
             text-align: center;
         }
+        .number-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
+        .number-buttons button {
+            width: 30px;
+            height: 30px;
+        }
     </style>
 </head>
 <body>
@@ -45,7 +54,19 @@
             <button type="button" id="exit-btn" class="btn btn-danger btn-block">Exit</button>
         </form>
         <div class="mt-4">
-            <table id="result" class="table table-bordered table-result">
+            <h5>Catatan</h5>
+            <div class="number-buttons">
+                <button type="button" class="btn btn-outline-secondary">1</button>
+                <button type="button" class="btn btn-outline-secondary">2</button>
+                <button type="button" class="btn btn-outline-secondary">3</button>
+                <button type="button" class="btn btn-outline-secondary">4</button>
+                <button type="button" class="btn btn-outline-secondary">5</button>
+                <button type="button" class="btn btn-outline-secondary">6</button>
+                <button type="button" class="btn btn-outline-secondary">7</button>
+                <button type="button" class="btn btn-outline-secondary">8</button>
+                <button type="button" class="btn btn-outline-secondary">9</button>
+            </div>
+            <table id="result" class="table table-bordered table-result mt-4">
                 <thead>
                     <tr>
                         <th>#</th>

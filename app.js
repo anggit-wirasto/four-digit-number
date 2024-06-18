@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const gameInfo = document.getElementById('game-info');
     const resultTableBody = document.querySelector('#result tbody');
     const exitBtn = document.getElementById('exit-btn');
+    const numberButtons = document.querySelectorAll('.number-buttons button');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
@@ -46,6 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
     exitBtn.addEventListener('click', function() {
         alert(`Wah payah, menyerah nih? Jawaban yang benar adalah ${uniqueNumber}`);
         location.reload();
+    });
+
+    numberButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            if (this.classList.contains('btn-outline-secondary')) {
+                this.classList.remove('btn-outline-secondary');
+                this.classList.add('btn-success');
+            } else if (this.classList.contains('btn-success')) {
+                this.classList.remove('btn-success');
+                this.classList.add('btn-danger');
+            } else {
+                this.classList.remove('btn-danger');
+                this.classList.add('btn-outline-secondary');
+            }
+        });
     });
 
     function generateUniqueDigitNumber() {
